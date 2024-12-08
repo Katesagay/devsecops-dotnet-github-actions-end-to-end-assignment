@@ -50,11 +50,11 @@ jobs:
     permissions: write-all
     needs: sonarcloud
     name: Example workflow for dotNET using Snyk
-    continue-on-error: true
     steps:
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/dotnet@master
+        continue-on-error: true
         env:
             SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 

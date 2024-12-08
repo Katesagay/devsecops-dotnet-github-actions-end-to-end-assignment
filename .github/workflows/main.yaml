@@ -49,16 +49,13 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     needs: sonarcloud
+    name: Example workflow for dotNET using Snyk
     steps:
       - uses: actions/checkout@master
-      - name: Setup .NET
-        uses: actions/setup-dotnet@3.0.3
-      - name: Restore dependencies
-        run: dotnet restore SomeConsoleApplication.sln
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/dotnet@master
         env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
   zap_scan:
     runs-on: ubuntu-latest

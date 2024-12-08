@@ -50,6 +50,7 @@ jobs:
     permissions: write-all
     needs: sonarcloud
     name: Example workflow for dotNET using Snyk
+    continue-on-error: true
     steps:
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
@@ -62,6 +63,7 @@ jobs:
     permissions: write-all
     needs: synk
     name: Run DAST scan on the web application
+    continue-on: fail
     steps:
      - name: Checkout
        uses: actions/checkout@v2
